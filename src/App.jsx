@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef} from "react";
 import {
   Sparkles, Upload, FileText, AlertTriangle, CheckCircle,
   ArrowRight, Calendar, Shield, Search, GitCompare,
@@ -653,64 +653,7 @@ export default function App() {
     }
   };
 
-  // ─────────────────────────────────────────────
-  // OPEN SAVED DOCUMENT FROM MONGODB
-  // ─────────────────────────────────────────────
-  const openSavedDocument = async (id) => {
-    try {
-      console.log(
-        "[FrestoDoc] Loading document:",
-        id
-      );
 
-      const res = await fetch(
-        `https://frestodoc-backend.onrender.com/api/documents/${id}`
-      );
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(
-          data.error || "Failed to load document"
-        );
-      }
-
-      const doc = data.document;
-
-      // Set document ID first
-      setDocumentId(doc._id);
-
-      setUploadResult({
-        filename: doc.filename,
-        text: doc.text || "",
-      });
-
-      setAiAnalysis(doc.analysis);
-
-      // Restore actions including completed state
-      syncActions(doc.analysis);
-
-      setQaResult(null);
-      setQaHistory([]);
-      setQuestion("");
-      setEvidenceItem(null);
-      setAnalyzeError(null);
-
-      setActiveTab("overview");
-      setView("results");
-
-      console.log(
-        "[FrestoDoc] ✓ Saved document opened"
-      );
-    } catch (error) {
-      console.error(
-        "[FrestoDoc] Failed to open document:",
-        error
-      );
-
-      setAnalyzeError(error.message);
-    }
-  };
 
   // ─────────────────────────────────────────────
   // DEMO
