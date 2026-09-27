@@ -364,7 +364,7 @@ export default function App() {
       setDocumentsLoading(true);
 
       const res = await fetch(
-        "http://localhost:5000/api/documents"
+        "https://frestodoc-backend.onrender.com/api/documents"
       );
 
       const data = await res.json();
@@ -482,7 +482,7 @@ export default function App() {
       fd.append("document", useFile);
 
       const upRes = await fetch(
-        "http://localhost:5000/api/upload",
+        "https://frestodoc-backend.onrender.com/api/upload",
         {
           method: "POST",
           body: fd,
@@ -550,7 +550,7 @@ export default function App() {
       );
 
       const aiRes = await fetch(
-        "http://localhost:5000/api/analyze",
+        "https://frestodoc-backend.onrender.com/api/analyze",
         {
           method: "POST",
           headers: {
@@ -664,7 +664,7 @@ export default function App() {
       );
 
       const res = await fetch(
-        `http://localhost:5000/api/documents/${id}`
+        `https://frestodoc-backend.onrender.com/api/documents/${id}`
       );
 
       const data = await res.json();
@@ -757,7 +757,7 @@ export default function App() {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/ask",
+        "https://frestodoc-backend.onrender.com/api/ask",
         {
           method: "POST",
           headers: {
@@ -818,7 +818,7 @@ export default function App() {
       fd.append("doc2", cmpFile2);
 
       const res = await fetch(
-        "http://localhost:5000/api/compare",
+        "https://frestodoc-backend.onrender.com/api/compare",
         {
           method: "POST",
           body: fd,
