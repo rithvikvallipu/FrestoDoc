@@ -391,10 +391,7 @@ export default function App() {
     }
   };
 
-  // Load saved documents when app starts
-  useEffect(() => {
-    loadSavedDocuments();
-  }, []);
+ 
 
   // ─────────────────────────────────────────────
   // SYNC ACTIONS FROM ANALYSIS
