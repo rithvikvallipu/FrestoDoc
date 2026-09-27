@@ -15,7 +15,7 @@ const { MongoClient,ObjectId } = require("mongodb");
 // ──────────────────────────────────────────────────────────
 
 const GEMINI_PRIMARY_MODEL  = "gemini-3.8-flash";
-const GEMINI_FALLBACK_MODEL = "gemini-3.6-flash-lite";
+const GEMINI_FALLBACK_MODEL = "gemini-3.5-flash-lite";
 
 // Status codes that are temporary and worth retrying
 const RETRYABLE_CODES = new Set([408, 429, 500, 502, 503, 504]);
