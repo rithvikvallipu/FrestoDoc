@@ -6,100 +6,110 @@
 
 FrestoDoc is an AI-powered document assistant that allows users to upload PDF documents and interact with their content using natural language.
 
-Instead of manually searching through lengthy documents, users can simply ask questions and receive relevant answers powered by **Google Gemini AI**.
+Instead of manually searching through lengthy documents, users can ask questions and receive relevant answers powered by **Google Gemini AI**.
 
 ---
 
-## 🚀 Overview
+## 🚀 Live Demo
 
-Working with lengthy PDF documents can be time-consuming. Important information may be spread across multiple pages, making it difficult to quickly find specific answers.
+🌐 **Try FrestoDoc:**
+https://fresto-doc.vercel.app/
 
-**FrestoDoc** provides a simple solution:
+---
 
-> Upload your document → Ask a question → Get an AI-powered answer.
+## 💡 Problem
 
-The application processes the uploaded PDF, extracts its content, sends the relevant information to Gemini AI, and displays the generated response through an intuitive web interface.
+Long PDF documents can contain a large amount of information, making it difficult and time-consuming to find specific answers.
+
+Users often have to:
+
+* Scroll through multiple pages
+* Search for keywords manually
+* Read large sections to understand context
+* Spend significant time finding simple information
+
+FrestoDoc provides a simpler approach: **ask the document directly.**
+
+---
+
+## 💡 Solution
+
+FrestoDoc converts a static PDF into an interactive AI-powered document experience.
+
+### Simple workflow:
+
+**Upload PDF → Process Document → Ask Question → Get AI Answer**
+
+Users can upload a document and ask questions about its content using natural language.
 
 ---
 
 ## ✨ Features
 
-* 📄 **PDF Upload**
+### 📄 PDF Upload
 
-  * Upload PDF documents directly through the web application.
+Upload PDF documents directly through the FrestoDoc interface.
 
-* 🤖 **AI Document Understanding**
+### 🤖 AI Document Understanding
 
-  * Uses Google Gemini to understand the content of uploaded documents.
+Google Gemini AI is used to analyze and understand the uploaded document.
 
-* 💬 **Natural Language Questions**
+### 💬 Natural Language Q&A
 
-  * Ask questions about your document using normal language.
+Ask questions about the document without manually searching through pages.
 
-* ⚡ **AI-Powered Answers**
+### ⚡ AI-Powered Responses
 
-  * Receive relevant responses based on the uploaded document.
+Receive relevant answers based on the document content.
 
-* 🖥️ **Simple Dashboard**
+### 🖥️ Interactive Dashboard
 
-  * Clean and easy-to-use interface for document interaction.
+A simple interface for uploading documents and interacting with them.
 
-* 🔄 **Interactive Q&A**
+### 🔄 Follow-up Questions
 
-  * Continue asking questions about the uploaded document.
+Continue asking questions about the uploaded document.
 
 ---
 
 ## 🏗️ How It Works
 
 ```text
-                ┌─────────────────┐
-                │   Upload PDF    │
-                └────────┬────────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │ React Frontend  │
-                └────────┬────────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │ Express Backend │
-                │    Node.js      │
-                └────────┬────────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │   PDF Parsing   │
-                └────────┬────────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │  Google Gemini  │
-                │       AI        │
-                └────────┬────────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │  AI Response    │
-                └────────┬────────┘
-                         │
-                         ▼
-                ┌─────────────────┐
-                │ FrestoDoc UI    │
-                └─────────────────┘
+User
+  │
+  ▼
+Upload PDF
+  │
+  ▼
+FrestoDoc Frontend
+  │
+  ▼
+Backend / API
+  │
+  ▼
+PDF Processing
+  │
+  ▼
+Google Gemini AI
+  │
+  ▼
+AI-Generated Answer
+  │
+  ▼
+FrestoDoc Interface
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
 ### Frontend
 
 * React 19
 * Vite
 * JavaScript
-* HTML/CSS
+* HTML
+* CSS
 
 ### Backend
 
@@ -108,167 +118,49 @@ The application processes the uploaded PDF, extracts its content, sends the rele
 * Multer
 * PDF parsing
 
-### AI
+### AI INTEGRATED
 
 * Google Gemini API
+* Gemini-3.5-Flash
+* Gemini-3.8-Flash-Lite
 * `@google/genai`
 
----
+### Deployment
 
-## 📂 Project Structure
-
-```text
-FrestoDoc/
-│
-├── bobdocs/
-│   ├── src/
-│   │   ├── App.jsx
-│   │   └── ...
-│   ├── package.json
-│   └── ...
-│
-├── backend/
-│   ├── server.js
-│   ├── package.json
-│   ├── .env
-│   └── ...
-│
-├── README.md
-└── ...
-```
-
-> The exact folder structure may vary depending on your current repository organization.
+* Vercel
 
 ---
 
-## ⚙️ Installation & Setup
+## 🌐 Deployment
 
-### 1. Clone the repository
+FrestoDoc is deployed using **Vercel**, allowing users to access the application through a web browser without installing the project locally.
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-```
-
-```bash
-cd FrestoDoc
-```
+The application's environment variables, including the Gemini API configuration, are managed securely through the deployment environment.
 
 ---
 
-### 2. Install frontend dependencies
-
-```bash
-cd bobdocs
-npm install
-```
-
----
-
-### 3. Install backend dependencies
-
-Open another terminal:
-
-```bash
-cd backend
-npm install
-```
-
----
-
-### 4. Configure Gemini API
-
-Create a `.env` file inside the backend directory:
-
-```env
-GEMINI_API_KEY=your_gemini_api_key
-```
-
-Replace `your_gemini_api_key` with your Google Gemini API key.
-
-**Important:** Never upload your `.env` file or expose your API key publicly.
-
-Add this to `.gitignore`:
-
-```text
-.env
-node_modules/
-```
-
----
-
-### 5. Start the backend
-
-```bash
-node server.js
-```
-
-The backend runs on:
-
-```text
-http://localhost:5000
-```
-
----
-
-### 6. Start the frontend
-
-From the frontend directory:
-
-```bash
-npm run dev
-```
-
-Open the local URL shown by Vite in your browser.
-
----
-
-## 💡 Example Use Case
-
-Imagine a student has a 100-page academic PDF and wants to find a specific piece of information.
-
-Instead of:
-
-```text
-Open PDF
-   ↓
-Search manually
-   ↓
-Read multiple pages
-   ↓
-Find information
-```
-
-With FrestoDoc:
-
-```text
-Upload PDF
-   ↓
-Ask a question
-   ↓
-Gemini analyzes the document
-   ↓
-Get the answer
-```
-
-This makes document interaction much more convenient.
-
----
-
-## 🎯 Target Users
+## 🎯 Use Cases
 
 FrestoDoc can be useful for:
 
-* 🎓 Students
-* 🔬 Researchers
-* 💼 Professionals
-* 🏢 Businesses
-* 📚 Anyone working with lengthy documents
+* 🎓 Students studying from academic PDFs
+* 🔬 Researchers working with papers and reports
+* 💼 Professionals working with business documents
+* 📚 Users reading lengthy documents
+* 🏢 Organizations working with document-based information
 
 ---
 
+## 📸 Application
+<img width="1407" height="913" alt="Screenshot 2026-09-27 110506" src="https://github.com/user-attachments/assets/d56ff72d-5756-41ca-96a0-36ee54d911a4" />
+
+### Dashboard
+
+<img width="1403" height="796" alt="Screenshot 2026-09-27 130335" src="https://github.com/user-attachments/assets/f3965969-cda8-4c9d-8b68-d098c7838fc5" />
+
 ## 🔮 Future Scope
 
-The current prototype can be extended with:
+Possible future improvements include:
 
 * 📚 Multi-document conversations
 * 📝 Automatic document summarization
@@ -276,37 +168,18 @@ The current prototype can be extended with:
 * 🎙️ Voice-based interaction
 * 📁 Support for additional file formats
 * 🧠 Personalized document knowledge bases
-* 🔍 More advanced document analysis
-
-These are planned improvements and are not necessarily part of the current implementation.
+* 🔍 Advanced document analysis
 
 ---
 
-The project explores how generative AI can make document-based information more accessible and interactive.
+FrestoDoc explores how generative AI can make information inside lengthy documents easier to access and understand.
 
 ---
 
 ## 👨‍💻 Project
 
-**FrestoDoc**
+### FrestoDoc
 
-> **Upload. Ask. Understand.**
+**Upload. Ask. Understand.**
 
-Built with ❤️ using **React, Node.js, Express and Google Gemini AI**.
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built with **React + Node.js + Express + Google Gemini AI** and deployed on **Vercel**.
